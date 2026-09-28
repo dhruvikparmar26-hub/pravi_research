@@ -1,0 +1,481 @@
+/* ──────────────────────────────────────────────
+   Pravi Design System — Derived from DESIGN-coinbase.md
+   Theme: Coinbase Institutional Design System
+   Base Canvas: Pure White (#ffffff)
+   Brand Voltage: Coinbase Blue (#0052ff)
+   Display Weight: 400 (Editorial Calm)
+   Pill Geometry: 100px for interactive elements
+   Card Radius: 24px
+   ────────────────────────────────────────────── */
+
+:root {
+  /* Colors */
+  --color-primary: #0052ff;
+  --color-primary-active: #003ecc;
+  --color-primary-disabled: #a8b8cc;
+  --color-primary-subtle: rgba(0, 82, 255, 0.08);
+  
+  --color-ink: #0a0b0d;
+  --color-body: #5b616e;
+  --color-body-strong: #0a0b0d;
+  --color-muted: #7c828a;
+  --color-muted-soft: #a8acb3;
+  
+  --color-hairline: #dee1e6;
+  --color-hairline-soft: #eef0f3;
+  
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f7f7f7;
+  --color-surface-card: #ffffff;
+  --color-surface-strong: #eef0f3;
+  --color-surface-dark: #0a0b0d;
+  --color-surface-dark-elevated: #16181c;
+  
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #a8acb3;
+  
+  --color-semantic-up: #05b169;
+  --color-semantic-down: #cf202f;
+  --color-accent-yellow: #f4b000;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Radii per DESIGN-coinbase.md */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 100px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface-soft);
+  color: var(--color-ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-soft);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-soft);
+}
+
+/* Typography per DESIGN-coinbase.md */
+/* Note: Display weight sits at 400 (editorial calm) with negative tracking */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.display-mega {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -1.6px;
+  color: var(--color-ink);
+}
+
+.display-lg {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.8px;
+  color: var(--color-ink);
+}
+
+.title-md {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: 0;
+  color: var(--color-ink);
+}
+
+.body-md {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+.body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+.caption-strong {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+.number-display {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-blue {
+  color: var(--color-primary);
+}
+
+/* Buttons — Pill geometry per DESIGN-coinbase.md */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.15;
+  padding: 12px 20px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  background-color: var(--color-primary-disabled);
+  color: #ffffff;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-active);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface-strong);
+  color: var(--color-ink);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-hairline);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-ink);
+  background-color: var(--color-surface-soft);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  height: 36px;
+  font-size: 13px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  height: 52px;
+  font-size: 16px;
+}
+
+/* Cards — 24px radius per DESIGN-coinbase.md */
+.card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-soft);
+}
+
+/* Dark Hero & Editorial Mockup Card per DESIGN-coinbase.md */
+.card-dark {
+  background-color: var(--color-surface-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  color: var(--color-on-dark);
+  padding: 32px;
+}
+
+.card-dark-inner {
+  background-color: var(--color-surface-dark-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+/* Inputs & Form Controls */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.input-field {
+  width: 100%;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.12);
+}
+
+.input-field::placeholder {
+  color: var(--color-muted);
+}
+
+select.input-field {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235b616e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.search-pill {
+  background-color: var(--color-surface-strong);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.search-pill:focus {
+  background-color: var(--color-canvas);
+  border-color: var(--color-hairline);
+  box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.1);
+}
+
+/* Badges & Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.badge-in_use,
+.badge-delivered,
+.badge-good,
+.badge-brand_new {
+  background: rgba(5, 177, 105, 0.08);
+  color: var(--color-semantic-up);
+  border: 1px solid rgba(5, 177, 105, 0.2);
+}
+
+.badge-under_maintenance,
+.badge-waiting_for_parts,
+.badge-in_progress,
+.badge-fair,
+.badge-needs_repair {
+  background: rgba(244, 176, 0, 0.1);
+  color: #b78103;
+  border: 1px solid rgba(244, 176, 0, 0.3);
+}
+
+.badge-in_transit,
+.badge-requested,
+.badge-assigned {
+  background: rgba(0, 82, 255, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(0, 82, 255, 0.2);
+}
+
+.badge-condemned,
+.badge-disposed,
+.badge-damaged,
+.badge-critical {
+  background: rgba(207, 32, 47, 0.08);
+  color: var(--color-semantic-down);
+  border: 1px solid rgba(207, 32, 47, 0.2);
+}
+
+.badge-procured,
+.badge-received,
+.badge-in_stock,
+.badge-open,
+.badge-closed {
+  background: var(--color-surface-strong);
+  color: var(--color-body);
+  border: 1px solid var(--color-hairline);
+}
+
+/* Tables — Institutional Coinbase Asset Row style */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-hairline);
+  background: var(--color-canvas);
+}
+
+.table,
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table th,
+.data-table th {
+  background: var(--color-canvas);
+  color: var(--color-muted);
+  padding: 16px 20px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-hairline);
+  white-space: nowrap;
+}
+
+.table td,
+.data-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-hairline-soft);
+  color: var(--color-ink);
+  vertical-align: middle;
+}
+
+.table tr:last-child td,
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr,
+.data-table tbody tr {
+  transition: background-color 0.12s ease;
+}
+
+.table tbody tr:hover,
+.data-table tbody tr:hover {
+  background-color: var(--color-surface-soft);
+}
+
+/* Custom Leaflet Map styling per DESIGN-coinbase.md */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-canvas) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid var(--color-hairline) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-canvas) !important;
+  border: 1px solid var(--color-hairline) !important;
+  box-shadow: none !important;
+}
+
+.custom-facility-marker {
+  background: transparent !important;
+  border: none !important;
+}

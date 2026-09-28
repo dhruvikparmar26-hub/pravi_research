@@ -1,0 +1,16 @@
+{
+  "name": "pravi",
+  "version": "1.0.0",
+  "description": "Pravi — Physical Asset Lifecycle Management System",
+  "private": true,
+  "scripts": {
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "seed": "cd server && npm run seed",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
